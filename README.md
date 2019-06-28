@@ -28,7 +28,12 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/install-LAMP.html
 `sudo yum install -y httpd24 php72 mysql57-server php72-mysqlnd`  
 - apacheの起動レベルの変更  
 - composerインストール  
-- Laravelプロジェクトのデプロイ
+- Laravelの設定  
+https://qiita.com/33yuki/items/5ee27163b603d7f68250
+- Laravelのプロジェクト作成  
+https://qiita.com/sskmy1024y/items/c2e434941400bd4ee82c  
+
+
 
 
 
