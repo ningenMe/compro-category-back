@@ -34,10 +34,10 @@ https://qiita.com/33yuki/items/5ee27163b603d7f68250
 https://qiita.com/sskmy1024y/items/c2e434941400bd4ee82c  
 - apacheログ確認
 http://gnvpu.hatenablog.com/entry/2015/08/12/150842  
-`cd /var/httpd`  
+`cd /etc/httpd`  
 `sudo bash -c "cd ./logs; ls"`
-`sudo cat /var/httpd/logs/access_log`
-`sudo cat /var/httpd/logs/error_log`
+`sudo cat /etc/httpd/logs/access_log`
+`sudo cat /etc/httpd/logs/error_log`
 
 
 
