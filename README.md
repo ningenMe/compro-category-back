@@ -32,7 +32,7 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/install-LAMP.html
 https://qiita.com/33yuki/items/5ee27163b603d7f68250
 - Laravelのプロジェクト作成  
 https://qiita.com/sskmy1024y/items/c2e434941400bd4ee82c  
-
+- 権限周りの確認  
 
 ## 頻出コマンド
 
@@ -51,26 +51,6 @@ https://qiita.com/Ping/items/10ada8d069e13d729701
 `php artisan view:clear`  
 - 権限変更  
 https://qiita.com/takeshi81/items/48ea62eae2fc7f1cb2f0  
-
-`chmod -R 774 /path`  
-`find /path -type d -exec chmod 744 {} +`  
-`find /path -type f -exec chmod 744 {} +`  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+`chmod -R 774 ./path`  
+`find ./path -type d -exec chmod 744 {} +`  
+`find ./path -type f -exec chmod 744 {} +`  
