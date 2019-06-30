@@ -32,13 +32,24 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/install-LAMP.html
 https://qiita.com/33yuki/items/5ee27163b603d7f68250
 - Laravelのプロジェクト作成  
 https://qiita.com/sskmy1024y/items/c2e434941400bd4ee82c  
+
+
+## 頻出コマンド
+
 - apacheログ確認
 http://gnvpu.hatenablog.com/entry/2015/08/12/150842  
 `cd /etc/httpd`  
-`sudo bash -c "cd ./logs; ls"`
-`sudo cat /etc/httpd/logs/access_log`
-`sudo cat /etc/httpd/logs/error_log`
+`sudo bash -c "cd ./logs; ls"`  
+`sudo cat /etc/httpd/logs/access_log`  
+`sudo cat /etc/httpd/logs/error_log`  
 
+- Laravelキャッシュ
+https://qiita.com/Ping/items/10ada8d069e13d729701  
+
+`php artisan cache:clear`  
+`php artisan config:clear`  
+`php artisan route:clear`  
+`php artisan view:clear`  
 
 
 
