@@ -45,12 +45,16 @@ http://gnvpu.hatenablog.com/entry/2015/08/12/150842
 
 - Laravelキャッシュ
 https://qiita.com/Ping/items/10ada8d069e13d729701  
-
 `php artisan cache:clear`  
 `php artisan config:clear`  
 `php artisan route:clear`  
 `php artisan view:clear`  
+- 権限変更  
+https://qiita.com/takeshi81/items/48ea62eae2fc7f1cb2f0  
 
+`chmod -R 774 /path`  
+`find /path -type d -exec chmod 744 {} +`  
+`find /path -type f -exec chmod 744 {} +`  
 
 
 
