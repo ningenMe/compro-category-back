@@ -33,6 +33,10 @@ https://qiita.com/33yuki/items/5ee27163b603d7f68250
 - Laravelのプロジェクト作成  
 https://qiita.com/sskmy1024y/items/c2e434941400bd4ee82c  
 - 権限周りの確認  
+- git install  
+https://mashpote.net/2016/03/13/post-203/  
+`yum list installed | grep git`  
+`yum install git`
 
 ## 頻出コマンド
 
@@ -54,3 +58,16 @@ https://qiita.com/takeshi81/items/48ea62eae2fc7f1cb2f0
 `chmod -R 774 ./path`  
 `find ./path -type d -exec chmod 744 {} +`  
 `find ./path -type f -exec chmod 744 {} +`  
+
+## 新しいLaravelリポジトリ
+- Laravelプロジェクト中でvendor作成  
+`composer install`
+- Laravelプロジェクト中で.env作成  
+`cp .env.example .env`  
+- Laravelプロジェクト中でAPP_KEY作成  
+`php artisan key:generate`  
+- migration,seed  
+`php artisan migrate`  
+`php artisan db:seed`  
+
+
