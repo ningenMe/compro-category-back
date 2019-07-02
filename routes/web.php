@@ -29,4 +29,6 @@ Route::get('auth/logout','Auth\LoginController@logout' );
 
 Route::get('/','CategoryController@list' );
 
+Route::get('/webhook','WebhookController@hook' );
+Route::post('/webhook','WebhookController@hook' );
 
