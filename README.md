@@ -37,6 +37,11 @@ https://qiita.com/sskmy1024y/items/c2e434941400bd4ee82c
 https://mashpote.net/2016/03/13/post-203/  
 `yum list installed | grep git`  
 `yum install git`
+- apacheのルーティングの設定  (これをしないと下位ディレクトリにアクセスできない)
+http://fksk.hatenablog.com/entry/2017/12/20/005940  
+`httpd.conf`  
+`-) AllowOverride None`  
+`+) AllowOverride All`  
 
 ## 頻出コマンド
 

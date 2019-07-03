@@ -9,7 +9,7 @@ class WebhookController extends Controller
     public function hook (Request $request)
     {
         // $secret = $request->input('secret');
-        //shell_exec('touch /home/ec2-user/hoge.txt');
+        shell_exec('touch /home/ec2-user/hoge.txt');
         return "test";
     }
 }
