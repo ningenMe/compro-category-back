@@ -64,6 +64,10 @@ https://qiita.com/takeshi81/items/48ea62eae2fc7f1cb2f0
 `find ./path -type d -exec chmod 744 {} +`  
 `find ./path -type f -exec chmod 744 {} +`  
 
+- Apache 再起動  
+https://qiita.com/macer_fkm/items/dda5e343e19c432a1ccd  
+`sudo service httpd restart`  
+
 ## 新しいLaravelリポジトリ
 - Laravelプロジェクト中でvendor作成  
 `composer install`
