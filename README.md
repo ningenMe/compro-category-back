@@ -78,5 +78,10 @@ https://qiita.com/macer_fkm/items/dda5e343e19c432a1ccd
 - migration,seed  
 `php artisan migrate`  
 `php artisan db:seed`  
+- httpd.confに環境変数の追加  
+- password生成  
+https://my.norton.com/extspa/idsafe?path=pwd-gen#  
+
+
 
 
