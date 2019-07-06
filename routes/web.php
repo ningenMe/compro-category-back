@@ -27,5 +27,7 @@ Route::post('auth/login','Auth\LoginController@login' );
 
 Route::get('auth/logout','Auth\LoginController@logout' );
 
-Route::get('/','CategoryController@list' );
+Route::get('/','FieldController@all' );
+
+Route::post('/create','FieldController@create' );
 
