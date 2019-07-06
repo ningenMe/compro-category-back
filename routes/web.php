@@ -32,3 +32,7 @@ Route::post('/fields/{field}/update','FieldController@update');
 Route::post('/fields/{field}/delete','FieldController@delete');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
