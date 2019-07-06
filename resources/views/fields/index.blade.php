@@ -8,7 +8,8 @@
             {{$field->id." ".$field->name }}
             <a href={{'fields/'.$field->id}}>url<a><br />
         @endforeach
-
+        
+        @if (Auth::check())
         <form name="createform" action="fields/create" method="post">
             {{ csrf_field() }}
         
@@ -18,6 +19,7 @@
             <input type = "text" name = "order" size = "10"><span>{{ $errors->first('order') }}</span><br />
             <button type='submit' name='action' value='send'>送信</button>
         </form>
+        @endif
 
     </body>
 </html>
