@@ -2,45 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Field;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 
 
 class FieldController extends Controller
 {
 
+    private $prefix = '/fields';
+
     /**
-     * field read 
-     * 全件取得
+     * Display a listing of the resource.
      *
-     * @return fields
+     * @return \Illuminate\Http\Response
      */
-    public function all ()
+    public function index()
     {
         $fields = \App\Field::all();
-        return view('category', ['fields' => $fields]);
+        return view('fields.index', ['fields' => $fields]);
     }
 
     /**
-     * field read 
-     * 1件取得
+     * Display a resource.
      *
-     * @return field
+     * @return \Illuminate\Http\Response
      */
-    public function find (Request $request, $id)
+    public function find()
     {
-        $field = \App\Field::find($id);
-        return view('category/edit/'.$id)->with('field',$field);
+        //
     }
 
     /**
-     * field create 
-     * 1件追加
+     * Show the form for creating a new resource.
      *
-     * @param  Request $request
-     * @return Responses
+     * @return \Illuminate\Http\Response
      */
-    public function create (Request $request)
+    public function create(Request $request)
     {
         $field = new \App\Field();
         
@@ -48,39 +46,66 @@ class FieldController extends Controller
         $field->name = $request->input('name');
         $field->order = $request->input('order');
         $field->save();
-
-        $resopnse = redirect('/');
-        return $resopnse;
+        return redirect($this->prefix);
     }
 
     /**
-     * field delete 
-     * 1件削除
+     * Store a newly created resource in storage.
      *
-     * @param  Request $request
-     * @return Responses
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function delete (Request $request)
+    public function store(Request $request)
     {
-
-        $resopnse = redirect('/');
-        return $resopnse;
+        //
     }
 
     /**
-     * field update 
-     * 1件更新
+     * Display the specified resource.
      *
-     * @param  Request $request
-     * @return Responses
+     * @param  \App\Field  $field
+     * @return \Illuminate\Http\Response
      */
-    public function update (Request $request)
+    public function show(Field $field)
     {
-
-        $resopnse = redirect('/');
-        return $resopnse;
+        //
     }
 
-    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Field  $field
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Field $field)
+    {
+        return view('fields.edit', ['field' => $field]);
+    }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Field  $field
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Field $field)
+    {
+        $field->name = $request->name;
+        $field->order = $request->order;
+        $field->save();
+        return redirect($this->prefix.'/'.$field->id);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Field  $field
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Field $field)
+    {
+        $field->delete();
+        return redirect($this->prefix);    
+    }
 }

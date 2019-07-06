@@ -82,6 +82,12 @@ https://qiita.com/macer_fkm/items/dda5e343e19c432a1ccd
 - password生成  
 https://my.norton.com/extspa/idsafe?path=pwd-gen#  
 
+## 新しいController  
+https://qiita.com/sutara79/items/cd4371b246b44a2cf87f  
+`php artisan make:controller HogeController --resource --model=Hoge`
+
+
+
 
 
 
