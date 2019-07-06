@@ -4,7 +4,7 @@
     </head>
     <body>
 
-    <a href='/fields'>もどる<a>
+    <a href='../fields'>もどる<a>
     <form name="createform" action= {{ $field->id.'/update' }} method="post">
         {{ csrf_field() }}
     

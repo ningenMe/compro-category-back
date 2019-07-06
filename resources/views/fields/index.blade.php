@@ -6,7 +6,7 @@
     <h1>Hello World!</h1>
         @foreach ($fields as $field)
             {{$field->id." ".$field->name }}
-            <a href={{'/fields/'.$field->id}}>url<a><br />
+            <a href={{'fields/'.$field->id}}>url<a><br />
         @endforeach
 
         <form name="createform" action="fields/create" method="post">
