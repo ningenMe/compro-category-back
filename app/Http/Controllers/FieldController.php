@@ -77,7 +77,7 @@ class FieldController extends Controller
      * @param  \App\Field  $field
      * @return \Illuminate\Http\Response
      */
-    public function edit(Field $field)
+    public function edit(FieldRequest $request, Field $field)
     {
         return view('fields.edit', ['field' => $field]);
     }
@@ -89,7 +89,7 @@ class FieldController extends Controller
      * @param  \App\Field  $field
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Field $field)
+    public function update(FieldRequest $request, Field $field)
     {
         $field->name = $request->name;
         $field->order = $request->order;
@@ -103,7 +103,7 @@ class FieldController extends Controller
      * @param  \App\Field  $field
      * @return \Illuminate\Http\Response
      */
-    public function delete(Field $field)
+    public function delete(FieldRequest $request, Field $field)
     {
         $field->delete();
         return redirect($this->prefix);    
