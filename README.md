@@ -84,7 +84,10 @@ https://my.norton.com/extspa/idsafe?path=pwd-gen#
 
 ## 新しいController  
 https://qiita.com/sutara79/items/cd4371b246b44a2cf87f  
-`php artisan make:controller HogeController --resource --model=Hoge`
+`php artisan make:controller HogeController --resource --model=Hoge`  
+
+## validationチェック  
+http://nootropic.me/site/web/xss.html
 
 
 
