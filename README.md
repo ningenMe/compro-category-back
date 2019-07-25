@@ -1,4 +1,4 @@
-# ComproCategory
+# ComproCategory.API
 ## マークダウン
 - マークダウン書き方はこのへん<br /> https://gist.github.com/mignonstyle/083c9e1651d7734f84c99b8cf49d57fa
 - VS code でマークダウン見るとき  
