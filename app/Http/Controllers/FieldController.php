@@ -20,7 +20,8 @@ class FieldController extends Controller
     public function index()
     {
         $fields = \App\Field::all();
-        return view('fields.index', ['fields' => $fields]);
+        return $fields;
+        //return view('fields.index', ['fields' => $fields]);
     }
 
     /**
