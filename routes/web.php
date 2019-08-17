@@ -27,5 +27,5 @@ Route::get('/fields/{field}','FieldController@edit');
 Route::post('/fields/{field}/update','FieldController@update');
 Route::post('/fields/{field}/delete','FieldController@delete');
 
-Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
+//Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 Route::get('/home', 'HomeController@index')->name('home');

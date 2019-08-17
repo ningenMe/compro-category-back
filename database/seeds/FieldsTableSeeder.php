@@ -15,6 +15,7 @@ class FieldsTableSeeder extends Seeder
         for($i = 1; $i <= 12; $i++){
             $field = [
                 'name' => 'fields'.$i,               
+                'key' => 'fields'.$i,               
                 'order' => $i,
                 'created_at' => $now,
                 'updated_at' => $now            

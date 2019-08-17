@@ -26,6 +26,7 @@ class FieldRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255'],
+            'key' => ['required', 'max:255'],
             'order' => ['required','integer','max:10000'],            
         ];
     }
