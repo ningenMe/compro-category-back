@@ -13,6 +13,9 @@
         name:<br /> 
         <input type = "text" name = "name" size = "10" value={{$field->name}}>
         <span>{{ $errors->first('name') }}</span><br />
+        href:<br /> 
+        <input type = "text" name = "href" size = "10" value={{$field->href}}>
+        <span>{{ $errors->first('href') }}</span><br />
         
         order:<br />
         <input type = "text" name = "order" size = "10" value={{$field->order}}>
