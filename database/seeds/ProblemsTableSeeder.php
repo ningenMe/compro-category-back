@@ -19,6 +19,8 @@ class ProblemsTableSeeder extends Seeder
                 'url' => 'url'.$i,              
                 'order' => $i,
                 'score' => 100*$i,
+                'estimation' => 100*$i,
+                'site'=> 'AtCoder',
                 'created_at' => $now,
                 'updated_at' => $now            
             ];

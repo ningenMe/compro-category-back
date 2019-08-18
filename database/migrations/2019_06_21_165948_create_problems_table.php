@@ -18,9 +18,11 @@ class CreateProblemsTable extends Migration
             $table->integer('domains_id')->unsigned();
             $table->foreign('domains_id')->references('id')->on('domains');
             $table->char('name', '255');
-            $table->string('url', '511');
-            $table->integer('order')->unsigned()->nullable()->default(100);
-            $table->integer('score')->unsigned()->nullable()->default(100);
+            $table->string('url', '511')->nullable()->default(null);
+            $table->integer('order')->unsigned()->default(100);
+            $table->integer('score')->unsigned()->default(100);
+            $table->integer('estimation')->unsigned()->default(100);
+            $table->string('site', '511')->nullable()->default(null);
             $table->timestamps();
             $table->softDeletes();
         });

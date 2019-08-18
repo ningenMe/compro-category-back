@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class FieldRequest extends FormRequest
+class ProblemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,7 @@ class FieldRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255'],
-            'label' => ['required', 'max:255'],
-            'order' => ['required','integer','max:10000'],            
+            'domains_id' => ['required','integer', 'max:10000'],
         ];
     }
 }

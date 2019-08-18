@@ -18,7 +18,7 @@ class CreateDomainsTable extends Migration
             $table->integer('fields_id')->unsigned();
             $table->foreign('fields_id')->references('id')->on('fields');
             $table->char('name', '255');
-            $table->integer('order')->unsigned()->nullable()->default(100);
+            $table->integer('order')->unsigned()->default(100);
             $table->timestamps();
             $table->softDeletes();
         });

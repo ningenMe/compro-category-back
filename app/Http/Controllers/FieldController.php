@@ -45,7 +45,7 @@ class FieldController extends Controller
         
         //DBに追加
         $field->name = $request->input('name');
-        $field->key = $request->input('key');
+        $field->label = $request->input('label');
         $field->order = $request->input('order');
         $field->save();
         return redirect($this->prefix);
@@ -94,7 +94,7 @@ class FieldController extends Controller
     public function update(FieldRequest $request, Field $field)
     {
         $field->name = $request->name;
-        $field->key = $request->key;
+        $field->label = $request->label;
         $field->order = $request->order;
         $field->save();
         return redirect($this->prefix.'/'.$field->id);
