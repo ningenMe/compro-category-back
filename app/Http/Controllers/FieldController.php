@@ -47,8 +47,14 @@ class FieldController extends Controller
         $field->name = $request->input('name');
         $field->label = $request->input('label');
         $field->order = $request->input('order');
-        $field->save();
-        return redirect($this->prefix);
+        $response;
+        try{
+            $field->save();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
     }
 
     /**
