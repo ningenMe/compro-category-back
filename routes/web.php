@@ -24,8 +24,7 @@ Route::get('auth/logout','Auth\LoginController@logout' );
 Route::get('/fields','FieldController@index' );
 //Route::post('/fields/create','FieldController@create');
 Route::get('/fields/{field}','FieldController@edit');
-Route::post('/fields/{field}/update','FieldController@update');
-Route::post('/fields/{field}/delete','FieldController@delete');
+Route::get('/fields/find/{label}','FieldController@find');
 
 Route::get('/domains','DomainController@index' );
 Route::get('/domains/{label}','DomainController@labelfind' );
