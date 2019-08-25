@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\User;
 
 class JwtController extends Controller
 {
@@ -29,6 +30,13 @@ class JwtController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth("api")->factory()->getTTL() * 60
         ]);
+    }
+
+    protected function register(Request $request){
+        $user = new User;
+        $user->fill($request->all());
+        $user->password=bcrypt($request->password);
+        $user->save();
     }
 
 }
