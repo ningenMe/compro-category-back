@@ -29,7 +29,7 @@ Route::post('/fields/{field}/delete','FieldController@delete');
 
 Route::get('/domains','DomainController@index' );
 Route::get('/domains/{label}','DomainController@labelfind' );
-
+    
 //Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
