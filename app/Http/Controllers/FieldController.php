@@ -29,9 +29,12 @@ class FieldController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function find()
+    public function find(Request $request)
     {
-        //
+        $label = $request->label;
+        $field = \App\Field::where("label",$label)->first();
+        if(is_null($field)) return [];
+        return $field;
     }
 
     /**
@@ -97,13 +100,21 @@ class FieldController extends Controller
      * @param  \App\Field  $field
      * @return \Illuminate\Http\Response
      */
-    public function update(FieldRequest $request, Field $field)
+    public function update(FieldRequest $request)
     {
+        $id = $request->id;
+        $field = \App\Field::where("id",$id)->first();
         $field->name = $request->name;
         $field->label = $request->label;
         $field->order = $request->order;
-        $field->save();
-        return redirect($this->prefix.'/'.$field->id);
+        $response;
+        try{
+            $field->save();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
     }
 
     /**
@@ -112,9 +123,17 @@ class FieldController extends Controller
      * @param  \App\Field  $field
      * @return \Illuminate\Http\Response
      */
-    public function delete(FieldRequest $request, Field $field)
+    public function delete(Request $request)
     {
-        $field->delete();
-        return redirect($this->prefix);    
+        $id = $request->id;
+        $field = \App\Field::where("id",$id)->first();
+        $response;
+        try{
+            $field->delete();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
     }
 }
