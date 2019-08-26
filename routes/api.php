@@ -21,7 +21,7 @@ Route::group(["middleware" => "guest:api"], function () {
     Route::post("/login", "JwtController@login");
 });
 
-Route::post('/register', "JwtController@register");
+//Route::post('/register', "JwtController@register");
 
 
 Route::group(["middleware" => "auth:api"], function () {
