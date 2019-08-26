@@ -19,7 +19,7 @@ class FieldController extends Controller
      */
     public function index()
     {
-        $fields = \App\Field::all();
+        $fields = \App\Field::orderBy('order','asc')->get();
         return $fields;
         //return view('fields.index', ['fields' => $fields]);
     }
