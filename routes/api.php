@@ -29,4 +29,7 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/fields/create','FieldController@create');
     Route::post('/fields/update','FieldController@update');
     Route::post('/fields/delete','FieldController@delete');
+    Route::post('/domains/create','DomainController@create' );
+    Route::post('/domains/update','DomainController@update' );
+    Route::post('/domains/delete','DomainController@delete' );    
 });

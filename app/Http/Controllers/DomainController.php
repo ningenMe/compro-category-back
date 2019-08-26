@@ -26,6 +26,19 @@ class DomainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function find(Request $request)
+    {
+        $id = $request->id;
+        $domain = \App\Domain::where("id",$id)->first();
+        if(is_null($domain)) return [];
+        return $domain;
+    }
+
+    /**
+     * Display a resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function labelfind(Request $request)
     {
         $label = $request->label;
@@ -33,7 +46,7 @@ class DomainController extends Controller
         if(is_null($fields)) return [];
         
         $fields_id = $fields->id;
-        $domains = \App\Domain::where("fields_id",$fields_id)->get();
+        $domains = \App\Domain::orderBy('order','asc')->where("fields_id",$fields_id)->get();
         foreach($domains as $domain) {
             $domain["problems"] = \App\Problem::where('domains_id',$domain["id"])->orderBy('estimation')->get();
         }
@@ -45,16 +58,21 @@ class DomainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(FieldRequest $request)
+    public function create(DomainRequest $request)
     {
         $domain = new \App\Domain();
         
         //DBに追加
-        // $field->name = $request->input('name');
-        // $field->label = $request->input('label');
-        // $field->order = $request->input('order');
-        // $field->save();
-//        return redirect($this->prefix);
+        $domain->fields_id = $request->input('fields_id');
+        $domain->name = $request->input('name');
+        $domain->order = $request->input('order');
+        try{
+            $domain->save();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
     }
 
     /**
@@ -97,13 +115,20 @@ class DomainController extends Controller
      * @param  \App\Domain  $domain
      * @return \Illuminate\Http\Response
      */
-    public function update(FieldRequest $request, Domain $domain)
+    public function update(DomainRequest $request)
     {
-        // $field->name = $request->name;
-        // $field->label = $request->label;
-        // $field->order = $request->order;
-        // $field->save();
-        // return redirect($this->prefix.'/'.$field->id);
+        $id = $request->id;
+        $domain = \App\Domain::where("id",$id)->first();
+        $domain->name = $request->name;
+        $domain->order = $request->order;
+        $response;
+        try{
+            $domain->save();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
     }
 
     /**
@@ -112,9 +137,17 @@ class DomainController extends Controller
      * @param  \App\Domain  $domain
      * @return \Illuminate\Http\Response
      */
-    public function delete(DomainRequest $request, Domain $domain)
+    public function delete(Request $request)
     {
-        $domain->delete();
-//        return redirect($this->prefix);    
+        $id = $request->id;
+        $domain = \App\Domain::where("id",$id)->first();
+        $response;
+        try{
+            $domain->delete();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
     }
 }
