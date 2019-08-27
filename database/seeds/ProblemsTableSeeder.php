@@ -17,10 +17,8 @@ class ProblemsTableSeeder extends Seeder
                 'domains_id' => $i/2 + 1,
                 'name' => 'problems'.$i,              
                 'url' => 'url'.$i,              
-                'order' => $i,
                 'score' => 100*$i,
                 'estimation' => 100*$i,
-                'site'=> 'AtCoder',
                 'created_at' => $now,
                 'updated_at' => $now            
             ];

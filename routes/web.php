@@ -29,7 +29,9 @@ Route::get('/fields/find/{label}','FieldController@find');
 Route::get('/domains','DomainController@index' );
 Route::get('/domains/{label}','DomainController@labelfind' );
 Route::get('/domains/find/{id}','DomainController@find' );
-    
+
+Route::get('/problems/find/{id}','ProblemController@find' );
+
 //Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');

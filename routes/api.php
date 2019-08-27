@@ -21,7 +21,7 @@ Route::group(["middleware" => "guest:api"], function () {
     Route::post("/login", "JwtController@login");
 });
 
-//Route::post('/register', "JwtController@register");
+Route::post('/register', "JwtController@register");
 
 
 Route::group(["middleware" => "auth:api"], function () {
@@ -32,4 +32,7 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/domains/create','DomainController@create' );
     Route::post('/domains/update','DomainController@update' );
     Route::post('/domains/delete','DomainController@delete' );    
+    Route::post('/problems/create','ProblemController@create' );
+    Route::post('/problems/update','ProblemController@update' );
+    Route::post('/problems/delete','ProblemController@delete' );
 });
