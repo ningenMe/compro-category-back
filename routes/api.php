@@ -36,3 +36,7 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/problems/update','ProblemController@update' );
     Route::post('/problems/delete','ProblemController@delete' );
 });
+
+Route::get('/genres','GenreController@index');
+Route::get('/genres/{label}/topics','TopicController@labelfind');
+Route::get('/tasks','TaskController@index');
