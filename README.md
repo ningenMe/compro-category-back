@@ -1,4 +1,44 @@
 # ComproCategory.API
+## エントリポイント
+
+|  | | 
+|---|---|
+| hostname |nongenme.net   |
+| path  | /compro_category |
+
+
+- genre : GenreController
+
+|  TEXT|METHOD  |URI  |AUTH|FUNCTION|
+|---|---|---|---|---|
+| 全件取得  |GET   |/api/genre  ||index|
+| 登録  |POST  |/api/genre  |NEED|create|
+| 編集 |GET   |/api/genre/{genre_id}  |NEED|edit|
+| 更新 |POST  |/api/genre/{genre_id}  |NEED|update |
+| 削除 |DELETE  |/api/genre/{genre_id}  |NEED|delete |
+
+- topic : TopicController
+
+|  TEXT|METHOD  |URI  |AUTH|FUNCTION|
+|---|---|---|---|---|
+| 全件取得  |GET   |/api/topic  ||index|
+| ジャンル配下全件取得  |GET   |/api/genre/{genre_id}/topic  ||genreFind|
+| 登録  |POST  |/api/topic  |NEED|create|
+| 編集 |GET   |/api/topic/{topic_id}  |NEED|edit|
+| 更新 |POST  |/api/topic/{topic_id}  |NEED|update |
+| 削除 |DELETE  |/api/topic/{topic_id}  |NEED|delete |
+
+- task : TaskController
+
+|  TEXT|METHOD  |URI  |AUTH|FUNCTION|
+|---|---|---|---|---|
+| 全件取得  |GET   |/api/task  ||index|
+| 登録  |POST  |/api/task  |NEED|create|
+| 編集 |GET   |/api/task/{task_id}  |NEED|edit|
+| 更新 |POST  |/api/task/{task_id}  |NEED|update |
+| 削除 |DELETE  |/api/task/{task_id}  |NEED|delete |
+
+
 ## マークダウン
 - マークダウン書き方はこのへん<br /> https://gist.github.com/mignonstyle/083c9e1651d7734f84c99b8cf49d57fa
 - VS code でマークダウン見るとき  

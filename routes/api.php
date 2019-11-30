@@ -40,3 +40,4 @@ Route::group(["middleware" => "auth:api"], function () {
 Route::get('/genres','GenreController@index');
 Route::get('/genres/{label}/topics','TopicController@labelfind');
 Route::get('/tasks','TaskController@index');
+Route::get('/tags','TagController@index');
