@@ -25,7 +25,12 @@ Route::group(["middleware" => "guest:api"], function () {
 
 
 Route::group(["middleware" => "auth:api"], function () {
-    Route::get("/me", "JwtController@me");
+    Route::get ("/me", "JwtController@me");
+    //genre routing
+    Route::post('/genres','GenreController@create');
+    Route::put ('/genres/{label}','GenreController@update');
+    Route::delete('/genres/{label}','GenreController@delete');
+
     Route::post('/fields/create','FieldController@create');
     Route::post('/fields/update','FieldController@update');
     Route::post('/fields/delete','FieldController@delete');
@@ -38,6 +43,10 @@ Route::group(["middleware" => "auth:api"], function () {
 });
 
 Route::get('/genres','GenreController@index');
-Route::get('/genres/{label}/topics','TopicController@labelfind');
+Route::get('/genres/{label}','GenreController@find');
+Route::get('/genres/{label}/topics','GenreController@findWithTopics');
+Route::get('/topics','TopicController@index');
+Route::get('/topics/{topic_id}/tasks','TopicController@findWithTasks');
 Route::get('/tasks','TaskController@index');
+Route::get('/tasks/{task_id}','TaskController@find');
 Route::get('/tags','TagController@index');
