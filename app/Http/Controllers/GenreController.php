@@ -108,7 +108,6 @@ class GenreController extends Controller
         $genre->name = $request->input('name');
         $genre->label = $request->input('label');
         $genre->order = $request->input('order');
-        $response;
         try{
             $genre->save();
             $response["result"] = true;

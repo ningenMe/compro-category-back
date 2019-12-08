@@ -53,5 +53,28 @@ class TopicController extends Controller
         return $topics;
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(TopicRequest $request)
+    {
+        $topic = new \App\Topic();
+        
+        //DBに追加
+        $topic->genre_id = $request->input('genre_id');
+        $topic->name = $request->input('name');
+        $topic->order = $request->input('order');
+        try{
+            $genre->save();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
+    }
+
+
 
 }

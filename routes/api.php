@@ -30,6 +30,7 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/genres','GenreController@create');
     Route::put ('/genres/{label}','GenreController@update');
     Route::delete('/genres/{label}','GenreController@delete');
+    Route::post('/topics','TopicController@create');
 
     Route::post('/fields/create','FieldController@create');
     Route::post('/fields/update','FieldController@update');
