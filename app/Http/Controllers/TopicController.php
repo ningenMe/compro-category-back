@@ -64,10 +64,10 @@ class TopicController extends Controller
         
         //DBに追加
         $topic->genre_id = $request->input('genre_id');
-        $topic->name = $request->input('name');
-        $topic->order = $request->input('order');
+        $topic->name     = $request->input('name');
+        $topic->order    = $request->input('order');
         try{
-            $genre->save();
+            $topic->save();
             $response["result"] = true;
         }catch(\Exception $e){
             $response["result"] = false;
