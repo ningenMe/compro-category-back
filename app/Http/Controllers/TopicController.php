@@ -27,6 +27,21 @@ class TopicController extends Controller
         return $topics;
     }
 
+    
+    /**
+     * Display a resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function find(Request $request)
+    {
+        $topic_id = $request->topic_id;
+        $topic = \App\Topic::where("topic_id",$topic_id)->first();
+        if(is_null($topic)) return [];
+        return $topic;
+    }
+
+
     /**
      * Display a resource.
      *
