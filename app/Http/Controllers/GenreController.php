@@ -40,6 +40,44 @@ class GenreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexWithTopics(Request $request)
+    {
+        //topicsをgenre含めて取得
+        $topics = DB::table('topics')
+        ->select('topics.topic_id as topic_id','topics.order as order','topics.name as topic_name','genres.name as genre_name','genres.genre_id','label')
+        ->where('topics.deleted_at', '=', null)
+        ->leftjoin('genres','genres.genre_id','=','topics.genre_id')
+        ->orderBy('topics.order')
+        ->get();
+
+        //genreを形成
+        $genres = array();
+        foreach($topics as $topic){
+            $genres[$topic->genre_id]['genre_id'] = $topic->genre_id;
+            $genres[$topic->genre_id]['genre_name'] = $topic->genre_name;
+            $genres[$topic->genre_id]['label'] = $topic->label;
+            $genres[$topic->genre_id]['topics'][] = $topic;
+        }
+
+        //純粋な配列に直す
+        $genres = array_values($genres);
+
+        //genre_idでソート
+        $sort_by_genre_id = array();
+        foreach($genres as $key_order => &$val_order){
+            $sort_by_genre_id[$key_order] = $val_order['genre_id'];
+        }
+        array_multisort($sort_by_genre_id,SORT_ASC,$genres);
+
+        return $genres;
+    }
+
+
+    /**
+     * Display a resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function findWithTopics(Request $request)
     {
         $label = $request->label;

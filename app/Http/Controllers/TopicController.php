@@ -36,9 +36,15 @@ class TopicController extends Controller
     public function find(Request $request)
     {
         $topic_id = $request->topic_id;
-        $topic = \App\Topic::where("topic_id",$topic_id)->first();
+        $topic = DB::table('topics')
+        ->select('topic_id','topics.order as order','topics.name as topic_name','genres.genre_id as genre_id','genres.name as genre_name','label')
+        ->where('topic_id', '=', $topic_id)
+        ->where('topics.deleted_at', '=', null)
+        ->leftjoin('genres','topics.genre_id','=','genres.genre_id')
+        ->get();
+
         if(is_null($topic)) return [];
-        return $topic;
+        return  json_decode(json_encode($topic[0]), true);;
     }
 
 
@@ -89,6 +95,50 @@ class TopicController extends Controller
         }
         return $response;
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update(TopicRequest $request)
+    {
+        $topic_id = $request->topic_id;
+        $topic = \App\Topic::where("topic_id",$topic_id)->first();
+        $topic->name      = $request->name;
+        $topic->order     = $request->order;
+        $topic->genre_id  = $request->genre_id;
+
+        $response;
+        try{
+            $topic->save();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request)
+    {
+        $topic_id = $request->topic_id;
+        $topic = \App\Topic::where("topic_id",$topic_id)->first();
+        $response;
+        try{
+            $topic->delete();
+            $response["result"] = true;
+        }catch(\Exception $e){
+            $response["result"] = false;
+        }
+        return $response;
+    }
+
 
 
 
